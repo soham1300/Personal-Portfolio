@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import SelfPic from "../assets/SelfPic.jpg";
-import { FaGithub, FaLocationArrow } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
+import IsMobile from "./IsMobile";
 
 function About() {
+  const isMobile = IsMobile();
   return (
     <AboutDiv>
       <Title>... /About me ...</Title>
@@ -13,8 +15,13 @@ function About() {
           the MERN and FERN stacks.
         </i>
       </MyInfo>
-      <SkillsDiv>
-        <Skills>
+      {isMobile && (
+        <MyPic isMobile={isMobile}>
+          <Img src={SelfPic} isMobile={isMobile} />
+        </MyPic>
+      )}
+      <SkillsDiv isMobile={isMobile}>
+        <Skills isMobile={isMobile}>
           <FrontendDiv>
             <SkillTitle>Front-end</SkillTitle>
             <Skill>
@@ -29,7 +36,7 @@ function About() {
             </Skill>
           </FrontendDiv>
           <SkillMidDiv>
-            <StylesDiv>
+            <StylesDiv isMobile={isMobile}>
               <SkillTitle>Styles</SkillTitle>
               <Skill>
                 <i>
@@ -38,15 +45,17 @@ function About() {
                 </i>
               </Skill>
             </StylesDiv>
-            <GithubBtnDiv href="https://github.com/soham1300" target="_blank">
-              <GithubBtn>
-                <FaGithub />
-              </GithubBtn>
-              <ArrowBtn>
-                {/* <FaLocationArrow /> */}
-                <GoArrowUpRight />
-              </ArrowBtn>
-            </GithubBtnDiv>
+            {!isMobile && (
+              <GithubBtnDiv href="https://github.com/soham1300" target="_blank">
+                <GithubBtn>
+                  <FaGithub />
+                </GithubBtn>
+                <ArrowBtn>
+                  {/* <FaLocationArrow /> */}
+                  <GoArrowUpRight />
+                </ArrowBtn>
+              </GithubBtnDiv>
+            )}
           </SkillMidDiv>
           <BackendDiv>
             <SkillTitle>Back-end</SkillTitle>
@@ -59,10 +68,11 @@ function About() {
             </Skill>
           </BackendDiv>
         </Skills>
-
-        <MyPic>
-          <Img src={SelfPic} />
-        </MyPic>
+        {!isMobile && (
+          <MyPic isMobile={isMobile}>
+            <Img src={SelfPic} isMobile={isMobile} />
+          </MyPic>
+        )}
       </SkillsDiv>
     </AboutDiv>
   );
@@ -70,7 +80,9 @@ function About() {
 
 export default About;
 
-const AboutDiv = styled.div``;
+const AboutDiv = styled.div`
+  overflow-x: hidden;
+`;
 
 const Title = styled.div`
   font-size: 2rem;
@@ -86,10 +98,12 @@ const MyInfo = styled.div`
 const SkillsDiv = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
+  overflow-x: hidden;
 `;
 
 const Skills = styled.div`
-  width: 50%;
+  width: ${(props) => (props.isMobile ? "80%" : "50%")};
   margin: 2rem;
   display: flex;
   flex-direction: column;
@@ -98,14 +112,14 @@ const Skills = styled.div`
 `;
 
 const MyPic = styled.div`
-  width: 50%;
+  width: ${(props) => (props.isMobile ? "100%" : "50%")};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const FrontendDiv = styled.div`
-  border: 1px solid #a6a6a6;
+  border: 1px solid #3d3d3d;
   border-radius: 20px;
   &:hover {
     background-color: #f5f5f5;
@@ -114,9 +128,9 @@ const FrontendDiv = styled.div`
 `;
 
 const StylesDiv = styled.div`
-  border: 1px solid #a6a6a6;
+  border: 1px solid #3d3d3d;
   border-radius: 20px;
-  width: 50%;
+  width: ${(props) => (props.isMobile ? "100%" : "50%")};
 
   &:hover {
     background-color: #f5f5f5;
@@ -125,7 +139,7 @@ const StylesDiv = styled.div`
 `;
 
 const BackendDiv = styled.div`
-  border: 1px solid #a6a6a6;
+  border: 1px solid #3d3d3d;
   border-radius: 20px;
   &:hover {
     background-color: #f5f5f5;
@@ -148,13 +162,14 @@ const Skill = styled.div`
 `;
 
 const Img = styled.img`
-  width: 50%;
+  width: ${(props) => (props.isMobile ? "80%" : "50%")};
   border-radius: 20px;
 `;
 
 const SkillMidDiv = styled.div`
   display: flex;
   gap: 2rem;
+  width: 100%;
 `;
 
 const GithubBtnDiv = styled.a`

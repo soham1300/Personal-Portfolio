@@ -1,28 +1,32 @@
 import styled from "styled-components";
 import Resume from "../assets/Soham_Resume_Fullstack.pdf";
 import IsMobile from "./IsMobile";
+import { RiMenu5Fill } from "react-icons/ri";
 
 function NavBar() {
   const isMobile = IsMobile();
   return (
     <NavBarDiv>
       <Name>Soham Bhogale</Name>
-      {!isMobile && (
-        <MidNav>
-          <About>About</About>
-          <Projects>Projects</Projects>
-          <Articles>Articles</Articles>
-          <Contacts>Contacts</Contacts>
-        </MidNav>
+      {isMobile ? (
+        <RiMenu5Fill size={30} />
+      ) : (
+        <>
+          <MidNav>
+            <About>About</About>
+            <Projects>Projects</Projects>
+            <Articles>Articles</Articles>
+            <Contacts>Contacts</Contacts>
+          </MidNav>
+          <DownloadCVBtn
+            href={Resume}
+            download="Soham Resume Fullstack"
+            target="_blank"
+          >
+            Download Resume
+          </DownloadCVBtn>
+        </>
       )}
-
-      <DownloadCVBtn
-        href={Resume}
-        download="Soham Resume Fullstack"
-        target="_blank"
-      >
-        Download Resume
-      </DownloadCVBtn>
     </NavBarDiv>
   );
 }
@@ -36,6 +40,7 @@ const NavBarDiv = styled.div`
   width: 100%;
   height: 5rem;
   gap: 1rem;
+  overflow-x: hidden;
 `;
 
 const Name = styled.div`

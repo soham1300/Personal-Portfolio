@@ -138,8 +138,10 @@ const HeroDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
+  align-items: center;
+  width: 100%;
   margin: 5rem 0;
+  overflow-x: hidden;
 `;
 
 const Section = styled.div`
@@ -193,6 +195,7 @@ const Highlight = styled.span`
 const SocialLinks = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 90%;
   margin: ${(props) => (props.isMobile ? "2rem 2rem 0 2rem" : "5rem")};
 `;
 

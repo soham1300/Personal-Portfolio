@@ -29,12 +29,11 @@ export default App;
 const Container = styled.div`
   background-color: #121212;
   color: #f5f5f5;
-  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
   margin: 0;
   padding: 0;
+  width: 100vw;
   overflow-x: hidden;
 `;
