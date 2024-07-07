@@ -3,6 +3,7 @@ import NavBar from "../component/NavBar";
 import Hero from "../component/Hero";
 import About from "../component/About";
 import Projects from "../component/Projects";
+import MiniProjects from "../component/MiniProjects";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Hero />
       <About />
       <Projects />
+      <MiniProjects />
     </HomeDiv>
   );
 }
