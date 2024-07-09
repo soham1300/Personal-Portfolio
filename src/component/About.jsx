@@ -162,8 +162,8 @@ const Skill = styled.div`
 `;
 
 const Img = styled.img`
-  width: ${(props) => (props.isMobile ? "80%" : "50%")};
-  border-radius: 20px;
+  width: ${(props) => (props.isMobile ? "80%" : "60%")};
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 `;
 
 const SkillMidDiv = styled.div`
