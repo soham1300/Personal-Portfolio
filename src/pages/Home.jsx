@@ -4,6 +4,7 @@ import Hero from "../component/Hero";
 import About from "../component/About";
 import Projects from "../component/Projects";
 import MiniProjects from "../component/MiniProjects";
+import ContactMe from "../component/ContactMe";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <About />
       <Projects />
       <MiniProjects />
+      <ContactMe />
     </HomeDiv>
   );
 }
