@@ -11,6 +11,13 @@ import IsMobile from "./IsMobile";
 function Hero() {
   const isMobile = IsMobile();
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       {isMobile ? (
@@ -29,7 +36,7 @@ function Hero() {
             </Goal>
           </Section>
           <Section>
-            <ProjectsDiv>
+            <ProjectsDiv onClick={() => scrollToSection("projects")}>
               <ProjectsBtn>Projects</ProjectsBtn>
               <ArrowBtn>
                 <FaArrowRight />
@@ -77,7 +84,7 @@ function Hero() {
         <HeroDiv>
           <Section>
             <FullStack isMobile={isMobile}>Full-Stack </FullStack>
-            <ProjectsDiv>
+            <ProjectsDiv onClick={() => scrollToSection("projects")}>
               <ProjectsBtn>Projects</ProjectsBtn>
               <ArrowBtn>
                 <FaArrowRight />
