@@ -141,6 +141,7 @@ const HeroDiv = styled.div`
   align-items: center;
   width: 100%;
   margin: 5rem 0;
+  height: 80vh;
   overflow-x: hidden;
 `;
 
