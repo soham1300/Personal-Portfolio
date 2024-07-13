@@ -6,11 +6,13 @@ import RandomUser from "../assets/RandomUser.png";
 import TeslaClone from "../assets/TeslaClone.jpeg";
 import TicTacToe from "../assets/TicTacToe.jpeg";
 import Weather from "../assets/Weather.png";
+import IsMobile from "./IsMobile";
 
 function MiniProjects() {
+  const isMobile = IsMobile();
   return (
     <MiniProjectsDiv>
-      <Title>... /Mini Projects ...</Title>
+      <Title isMobile={isMobile}>... /Mini Projects ...</Title>
       <Projects>
         <TaggedContentCard
           href="https://github.com/soham1300/Tesla-Clone"
@@ -73,9 +75,10 @@ export default MiniProjects;
 const MiniProjectsDiv = styled.div``;
 
 const Title = styled.div`
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: ${(props) => (props.isMobile ? "1.5rem" : "2rem")};
   font-weight: bold;
-  margin-left: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const Projects = styled.div`

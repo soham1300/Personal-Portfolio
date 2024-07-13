@@ -7,8 +7,8 @@ import IsMobile from "./IsMobile";
 function About() {
   const isMobile = IsMobile();
   return (
-    <AboutDiv>
-      <Title>... /About me ...</Title>
+    <AboutDiv id="about">
+      <Title isMobile={isMobile}>... /About me ...</Title>
       <MyInfo>
         <i>
           Hello! I`m Soham, a passionate Full Stack Developer specializing in
@@ -85,9 +85,10 @@ const AboutDiv = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: ${(props) => (props.isMobile ? "1.5rem" : "2rem")};
   font-weight: bold;
-  margin-left: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const MyInfo = styled.div`

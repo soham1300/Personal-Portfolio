@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+import IsMobile from "./IsMobile";
 
 function ContactMe() {
+  const isMobile = IsMobile();
   return (
-    <ContactMeDiv>
-      <Title>Contact Me</Title>
-      <Info>
+    <ContactMeDiv id="contacts">
+      <Title isMobile={isMobile}>... /Contact Me ...</Title>
+      <Info isMobile={isMobile}>
         <i>
           Feel free to reach out to me for any opportunities, collaborations, or
           just a friendly chat!
@@ -41,18 +43,23 @@ function ContactMe() {
 export default ContactMe;
 
 const ContactMeDiv = styled.div`
-  margin: 2rem;
+  /* margin: 2rem; */
 `;
 
 const Title = styled.div`
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: ${(props) => (props.isMobile ? "1.5rem" : "2rem")};
   font-weight: bold;
   margin-bottom: 1rem;
 `;
 
 const Info = styled.div`
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   margin-bottom: 2rem;
+  font-size: ${(props) => (props.isMobile ? "1.2rem" : "1.5rem")};
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 2rem;
 `;
 
 const ContactLinks = styled.div`
