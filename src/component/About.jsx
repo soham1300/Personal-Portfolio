@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import SelfPic from "../assets/SelfPic.jpg";
+// import SelfPic from "../assets/SelfPic.jpg";
+import SelfPic from "../assets/Selfpic.png";
 import { FaGithub } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import IsMobile from "./IsMobile";
+import ThoughtBubble from "../assets/ThoughtBubble.png";
 
 function About() {
   const isMobile = IsMobile();
@@ -71,6 +73,7 @@ function About() {
         {!isMobile && (
           <MyPic isMobile={isMobile}>
             <Img src={SelfPic} isMobile={isMobile} />
+            <OverlayImg src={ThoughtBubble} alt="Overlay" />
           </MyPic>
         )}
       </SkillsDiv>
@@ -86,6 +89,7 @@ const AboutDiv = styled.div`
 
 const Title = styled.div`
   /* font-size: 2rem; */
+
   font-size: ${(props) => (props.isMobile ? "1.5rem" : "2rem")};
   font-weight: bold;
   margin-bottom: 1rem;
@@ -117,6 +121,7 @@ const MyPic = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const FrontendDiv = styled.div`
@@ -200,4 +205,14 @@ const ArrowBtn = styled.a`
   justify-content: center;
   align-items: center;
   margin-left: -1rem;
+`;
+
+const OverlayImg = styled.img`
+  position: absolute;
+  top: 0px;
+  right: 15%;
+  /* left: 50%; */
+  /* width: 100px; */
+  width: 30%;
+  z-index: 1;
 `;
